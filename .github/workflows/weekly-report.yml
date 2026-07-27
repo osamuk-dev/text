@@ -1,0 +1,39 @@
+name: Weekly web analytics report
+
+on:
+  schedule:
+    - cron: '7 0 * * 1'   # 毎週月曜 00:07 UTC = 09:07 JST
+  workflow_dispatch:        # 手動実行 (テスト用)
+
+permissions:
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate report and post to Slack
+        env:
+          # Secrets に PLAUSIBLE_API_KEY を登録するとそちらが優先される
+          PLAUSIBLE_API_KEY: ${{ secrets.PLAUSIBLE_API_KEY || 'Erwt9xVcagCZFQcKO5de3YAi-o5Ac9ToPyWgjLjYi8V375ndSIfKFQNmI8fS6o4b' }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          REPORT_LINK: ${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/reports/latest.md
+        run: python scripts/weekly_report.py
+
+      - name: Commit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports
+          if git diff --cached --quiet; then
+            echo "変更なし — コミットをスキップ"
+          else
+            git commit -m "Add weekly analytics report ($(date -u +%F))"
+            git push
+          fi
