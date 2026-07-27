@@ -20,7 +20,8 @@ jobs:
 
       - name: Generate report and post to Slack
         env:
-          PLAUSIBLE_API_KEY: ${{ secrets.PLAUSIBLE_API_KEY }}
+          # Secrets に PLAUSIBLE_API_KEY を登録するとそちらが優先される
+          PLAUSIBLE_API_KEY: ${{ secrets.PLAUSIBLE_API_KEY || 'Erwt9xVcagCZFQcKO5de3YAi-o5Ac9ToPyWgjLjYi8V375ndSIfKFQNmI8fS6o4b' }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPORT_LINK: ${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/reports/latest.md
         run: python scripts/weekly_report.py
