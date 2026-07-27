@@ -1,0 +1,5 @@
+# hyperresearch vault index (rebuilt from research/notes via `hyperresearch sync`)
+.hyperresearch/hyperresearch.db
+.hyperresearch/hyperresearch.db-wal
+.hyperresearch/hyperresearch.db-shm
+.hyperresearch/exports/
