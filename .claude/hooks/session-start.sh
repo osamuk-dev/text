@@ -39,11 +39,18 @@ PY
     ln -sf "$existing_shell" "$shell_target"
   fi
 
+  # Newer patchright revisions use the Chrome-for-Testing layout
+  # (chrome-linux64/chrome); older Playwright builds ship chrome-linux/chrome.
+  # Link both so whichever layout patchright resolves to exists.
   existing_chrome=$(ls "$PW"/chromium-*/chrome-linux/chrome 2>/dev/null | head -1 || true)
-  chrome_target="$PW/chromium-$chromium_rev/chrome-linux/chrome"
-  if [ -n "$chromium_rev" ] && [ -n "$existing_chrome" ] && [ ! -e "$chrome_target" ]; then
-    mkdir -p "$(dirname "$chrome_target")"
-    ln -sf "$existing_chrome" "$chrome_target"
+  if [ -n "$chromium_rev" ] && [ -n "$existing_chrome" ]; then
+    for layout in "chrome-linux/chrome" "chrome-linux64/chrome"; do
+      chrome_target="$PW/chromium-$chromium_rev/$layout"
+      if [ ! -e "$chrome_target" ]; then
+        mkdir -p "$(dirname "$chrome_target")"
+        ln -sf "$existing_chrome" "$chrome_target"
+      fi
+    done
   fi
 fi
 
