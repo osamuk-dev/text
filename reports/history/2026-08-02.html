@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Citadel AI ウェブ分析 週次レポート 2026-07-27〜2026-08-02</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e;
+    --muted: #898781; --grid: #e1e0d9; --border: rgba(11,11,11,0.10);
+    --series-1: #2a78d6; --bar: #86b6ef; --good: #006300; --bad: #d03b3b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7;
+      --muted: #898781; --grid: #2c2c2a; --border: rgba(255,255,255,0.10);
+      --series-1: #3987e5; --bar: #1c5cab; --good: #0ca30c; --bad: #e66767;
+    }
+  }
+  body { background: var(--page); color: var(--ink); margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    line-height: 1.6; padding: 2.5rem 1.25rem 4rem; }
+  main { max-width: 860px; margin: 0 auto; }
+  .eyebrow { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; }
+  h1 { font-size: 1.5rem; margin: .2rem 0 0; }
+  .period { color: var(--ink-2); margin: .3rem 0 1.8rem; }
+  h2 { font-size: 1.05rem; margin: 2.2rem 0 .8rem; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .75rem; }
+  .tile { background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+    padding: .9rem 1rem; }
+  .tile-label { font-size: .78rem; color: var(--ink-2); }
+  .tile-value { font-size: 1.55rem; font-weight: 650; margin: .1rem 0; }
+  .tile-delta { font-size: .82rem; font-weight: 600; }
+  .tile-delta .vs { color: var(--muted); font-weight: 400; }
+  .tile-delta.up { color: var(--good); }
+  .tile-delta.down { color: var(--bad); }
+  .tile-delta.flat { color: var(--muted); }
+  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+    padding: 1.1rem 1.25rem; overflow-x: auto; }
+  svg { width: 100%; height: auto; display: block; }
+  .tick { font-size: 11px; fill: var(--muted); font-variant-numeric: tabular-nums; }
+  .series-label { font-size: 12px; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  td { padding: .45rem .5rem; border-top: 1px solid var(--grid); vertical-align: middle; }
+  tr:first-child td { border-top: none; }
+  td.name { max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; width: 5.5em; }
+  td.bar-cell { width: 40%; min-width: 140px; }
+  .bar { display: inline-block; height: 12px; background: var(--bar); border-radius: 3px;
+    vertical-align: middle; }
+  .pct { font-size: .78rem; color: var(--muted); margin-left: .5em;
+    font-variant-numeric: tabular-nums; }
+  .empty { color: var(--muted); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
+  .insights li { margin: .4rem 0; }
+  footer { margin-top: 3rem; color: var(--muted); font-size: .8rem; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">Citadel AI — citadel-ai.com / Plausible Analytics</p>
+    <h1>ウェブ分析 週次レポート</h1>
+    <p class="period">対象期間: 2026-07-27 (月) 〜 2026-08-02 (日) ・ 比較対象: 前週</p>
+  </header>
+
+  <div class="tiles"><div class="tile"><div class="tile-label">訪問者数</div><div class="tile-value">591</div><div class="tile-delta up">▲ 51.2% <span class="vs">前週比</span></div></div><div class="tile"><div class="tile-label">訪問数</div><div class="tile-value">658</div><div class="tile-delta up">▲ 55.2% <span class="vs">前週比</span></div></div><div class="tile"><div class="tile-label">ページビュー</div><div class="tile-value">2,335</div><div class="tile-delta up">▲ 137.5% <span class="vs">前週比</span></div></div><div class="tile"><div class="tile-label">直帰率</div><div class="tile-value">58%</div><div class="tile-delta up">▼ 6.5% <span class="vs">前週比</span></div></div><div class="tile"><div class="tile-label">平均滞在時間</div><div class="tile-value">4分32秒</div><div class="tile-delta up">▲ 124.8% <span class="vs">前週比</span></div></div></div>
+
+  <h2>日別訪問者数 (対象週 vs 前週)</h2>
+  <div class="panel"><svg viewBox="0 0 720 240" role="img" aria-label="日別訪問者数: 対象週と前週の比較">
+  <line x1="44" y1="210.0" x2="656" y2="210.0" stroke="var(--grid)" stroke-width="1"/><line x1="44" y1="113.0" x2="656" y2="113.0" stroke="var(--grid)" stroke-width="1"/><line x1="44" y1="16.0" x2="656" y2="16.0" stroke="var(--grid)" stroke-width="1"/><text x="36" y="214.0" text-anchor="end" class="tick">0</text><text x="36" y="117.0" text-anchor="end" class="tick">74</text><text x="36" y="20.0" text-anchor="end" class="tick">149</text>
+  <polyline points="44.0,181.4 146.0,104.5 248.0,75.9 350.0,126.7 452.0,111.0 554.0,170.9 656.0,181.4" fill="none" stroke="var(--muted)"
+    stroke-width="2" stroke-dasharray="5 4" stroke-linejoin="round"/>
+  <polyline points="44.0,109.7 146.0,81.1 248.0,73.3 350.0,83.7 452.0,16.0 554.0,148.8 656.0,165.7" fill="none" stroke="var(--series-1)"
+    stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="44.0" cy="109.7" r="8" fill="transparent"><title>7/27: 77人 (前週同曜日 22人)</title></circle><circle cx="44.0" cy="109.7" r="3" fill="var(--series-1)"/><circle cx="146.0" cy="81.1" r="8" fill="transparent"><title>7/28: 99人 (前週同曜日 81人)</title></circle><circle cx="146.0" cy="81.1" r="3" fill="var(--series-1)"/><circle cx="248.0" cy="73.3" r="8" fill="transparent"><title>7/29: 105人 (前週同曜日 103人)</title></circle><circle cx="248.0" cy="73.3" r="3" fill="var(--series-1)"/><circle cx="350.0" cy="83.7" r="8" fill="transparent"><title>7/30: 97人 (前週同曜日 64人)</title></circle><circle cx="350.0" cy="83.7" r="3" fill="var(--series-1)"/><circle cx="452.0" cy="16.0" r="8" fill="transparent"><title>7/31: 149人 (前週同曜日 76人)</title></circle><circle cx="452.0" cy="16.0" r="3" fill="var(--series-1)"/><circle cx="554.0" cy="148.8" r="8" fill="transparent"><title>8/1: 47人 (前週同曜日 30人)</title></circle><circle cx="554.0" cy="148.8" r="3" fill="var(--series-1)"/><circle cx="656.0" cy="165.7" r="8" fill="transparent"><title>8/2: 34人 (前週同曜日 22人)</title></circle><circle cx="656.0" cy="165.7" r="3" fill="var(--series-1)"/><text x="44.0" y="232" text-anchor="middle" class="tick">月 7/27</text><text x="146.0" y="232" text-anchor="middle" class="tick">火 7/28</text><text x="248.0" y="232" text-anchor="middle" class="tick">水 7/29</text><text x="350.0" y="232" text-anchor="middle" class="tick">木 7/30</text><text x="452.0" y="232" text-anchor="middle" class="tick">金 7/31</text><text x="554.0" y="232" text-anchor="middle" class="tick">土 8/1</text><text x="656.0" y="232" text-anchor="middle" class="tick">日 8/2</text>
+  <text x="666.0" y="169.7" class="series-label"
+    fill="var(--series-1)">対象週</text>
+  <text x="666.0" y="185.4" class="series-label"
+    fill="var(--muted)">前週</text>
+</svg></div>
+
+  <h2>上位ページ (訪問者数)</h2>
+  <div class="panel"><table>
+    <tr><td class="name">/ja/</td><td class="num">189</td><td class="bar-cell"><div class="bar" style="width:32.0%"></div><span class="pct">32.0%</span></td></tr><tr><td class="name">/</td><td class="num">155</td><td class="bar-cell"><div class="bar" style="width:26.2%"></div><span class="pct">26.2%</span></td></tr><tr><td class="name">/ja/about/</td><td class="num">88</td><td class="bar-cell"><div class="bar" style="width:14.9%"></div><span class="pct">14.9%</span></td></tr><tr><td class="name">/ja/careers/</td><td class="num">47</td><td class="bar-cell"><div class="bar" style="width:8.0%"></div><span class="pct">8.0%</span></td></tr><tr><td class="name">/ja/products/lens/</td><td class="num">46</td><td class="bar-cell"><div class="bar" style="width:7.8%"></div><span class="pct">7.8%</span></td></tr><tr><td class="name">/careers/</td><td class="num">45</td><td class="bar-cell"><div class="bar" style="width:7.6%"></div><span class="pct">7.6%</span></td></tr><tr><td class="name">/ja/news/</td><td class="num">38</td><td class="bar-cell"><div class="bar" style="width:6.4%"></div><span class="pct">6.4%</span></td></tr><tr><td class="name">/ja/blog/2026/07/29/8th-grand-canvas/</td><td class="num">37</td><td class="bar-cell"><div class="bar" style="width:6.3%"></div><span class="pct">6.3%</span></td></tr><tr><td class="name">/ja/news/2026/07/31/cao-ai-evaluation-environment/</td><td class="num">36</td><td class="bar-cell"><div class="bar" style="width:6.1%"></div><span class="pct">6.1%</span></td></tr><tr><td class="name">/about/</td><td class="num">31</td><td class="bar-cell"><div class="bar" style="width:5.2%"></div><span class="pct">5.2%</span></td></tr>
+  </table></div>
+
+  <h2>流入元 (訪問者数)</h2>
+  <div class="panel"><table>
+    <tr><td class="name">Google</td><td class="num">270</td><td class="bar-cell"><div class="bar" style="width:45.7%"></div><span class="pct">45.7%</span></td></tr><tr><td class="name">Direct / None</td><td class="num">218</td><td class="bar-cell"><div class="bar" style="width:36.9%"></div><span class="pct">36.9%</span></td></tr><tr><td class="name">Bing</td><td class="num">41</td><td class="bar-cell"><div class="bar" style="width:6.9%"></div><span class="pct">6.9%</span></td></tr><tr><td class="name">X (Twitter)</td><td class="num">20</td><td class="bar-cell"><div class="bar" style="width:3.4%"></div><span class="pct">3.4%</span></td></tr><tr><td class="name">Facebook</td><td class="num">14</td><td class="bar-cell"><div class="bar" style="width:2.4%"></div><span class="pct">2.4%</span></td></tr><tr><td class="name">teams.public.onecdn.static.microsoft</td><td class="num">6</td><td class="bar-cell"><div class="bar" style="width:1.0%"></div><span class="pct">1.0%</span></td></tr><tr><td class="name">ChatGPT</td><td class="num">5</td><td class="bar-cell"><div class="bar" style="width:0.8%"></div><span class="pct">0.8%</span></td></tr><tr><td class="name">artificialintelligenceact.eu</td><td class="num">3</td><td class="bar-cell"><div class="bar" style="width:0.5%"></div><span class="pct">0.5%</span></td></tr><tr><td class="name">speakerdeck.com</td><td class="num">3</td><td class="bar-cell"><div class="bar" style="width:0.5%"></div><span class="pct">0.5%</span></td></tr><tr><td class="name">Yahoo!</td><td class="num">3</td><td class="bar-cell"><div class="bar" style="width:0.5%"></div><span class="pct">0.5%</span></td></tr>
+  </table></div>
+
+  <div class="grid-2">
+    <div><h2>国別</h2><div class="panel"><table><tr><td class="name">Japan</td><td class="num">394</td><td class="bar-cell"><div class="bar" style="width:66.7%"></div><span class="pct">66.7%</span></td></tr><tr><td class="name">United States</td><td class="num">83</td><td class="bar-cell"><div class="bar" style="width:14.0%"></div><span class="pct">14.0%</span></td></tr><tr><td class="name">India</td><td class="num">15</td><td class="bar-cell"><div class="bar" style="width:2.5%"></div><span class="pct">2.5%</span></td></tr><tr><td class="name">United Kingdom</td><td class="num">11</td><td class="bar-cell"><div class="bar" style="width:1.9%"></div><span class="pct">1.9%</span></td></tr><tr><td class="name">France</td><td class="num">6</td><td class="bar-cell"><div class="bar" style="width:1.0%"></div><span class="pct">1.0%</span></td></tr></table></div></div>
+    <div><h2>デバイス</h2><div class="panel"><table><tr><td class="name">Desktop</td><td class="num">440</td><td class="bar-cell"><div class="bar" style="width:74.5%"></div><span class="pct">74.5%</span></td></tr><tr><td class="name">Mobile</td><td class="num">144</td><td class="bar-cell"><div class="bar" style="width:24.4%"></div><span class="pct">24.4%</span></td></tr><tr><td class="name">Tablet</td><td class="num">7</td><td class="bar-cell"><div class="bar" style="width:1.2%"></div><span class="pct">1.2%</span></td></tr></table></div></div>
+  </div>
+
+  <h2>所見</h2>
+  <div class="panel"><ul class="insights"><li>訪問者数は前週比 51.2% の増加 (391人 → 591人)。</li><li>最も見られたページは /ja/ (訪問者の 32.0% が閲覧)。</li><li>最大の流入元は Google (45.7%)。</li><li>直帰率が前週比 6.5% 改善 (62% → 58%)。</li></ul></div>
+
+  <footer>Plausible Stats API から自動生成 (2026-08-03 03:49 UTC)</footer>
+</main>
+</body>
+</html>
